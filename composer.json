@@ -15,5 +15,11 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "CD2\\Core\\" : "src/"
+        },
+        "files": ["src/Utils/Functions.php"]
+    }
 }
