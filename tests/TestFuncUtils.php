@@ -38,32 +38,4 @@ class TestFuncUtils extends TestCase
     public function func_enabled_returns_true_for_existing_function() {
         $this->assertTrue(func_enabled('ini_get'));
     }
-
-    /**
-     * @test
-     * @requires function array_rand, count
-     */
-    public function func_enabled_returns_false_for_disabled_function() {
-        $disabled_functions = get_disabled_functions();
-        if (count($disabled_functions) > 0) {
-            $funcPick = $disabled_functions[array_rand($disabled_functions)];
-            $this->assertFalse(func_enabled($funcPick), "function '{$funcPick}' is not enabled");
-        } else {
-            $this->markTestSkipped('needs at least one disabled function');
-        }
-    }
-
-    /**
-     * @test
-     * @requires function array_rand, count
-     */
-    public function is_disabled_returns_true_for_disabled_function() {
-        $disabled_functions = get_disabled_functions();
-        if (count($disabled_functions) > 0) {
-            $funcPick = $disabled_functions[array_rand($disabled_functions)];
-            $this->assertTrue(is_disabled($funcPick), "function '{$funcPick}' is not disabled");
-        } else {
-            $this->markTestSkipped('needs at least one disabled function');
-        }
-    }
 }
